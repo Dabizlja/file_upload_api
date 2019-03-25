@@ -1,24 +1,8 @@
-# README
+- Guides to run application:
+  - pull the code from master branch
+  - run bundle install
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  
+required: (postgresql, rails 5.2.1, ruby 2.5)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
