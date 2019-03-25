@@ -22,7 +22,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.7'
+gem 'api-pagination', '~> 4.8', '>= 4.8.2'
 # act-as-taggable-on gem for tagging functionality
 gem 'acts-as-taggable-on', '~> 6.0'
 # Reduces boot times through caching; required in config/boot.rb
