@@ -22,6 +22,8 @@ gem 'puma', '~> 3.11'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# act-as-taggable-on gem for tagging functionality
+gem 'acts-as-taggable-on', '~> 6.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
