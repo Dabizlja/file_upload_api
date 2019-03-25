@@ -10,9 +10,10 @@ class Api::V1::AttachmentsController < ApplicationController
   end
 
   def tag_search
-    search_array = search_by(params[:tag_search_query])
-    @records = Attachment.tagged_with(search_array, :any => true)
-    @related_records = Attachment.tagged_with(search_array, :exclude => true)
+    search_only_permitted_tags = search_permitted_tags(params[:tag_search_query])
+    related_project_search = exclude_search(params[:tag_search_query])
+    @records = Attachment.tagged_with(search_only_permitted_tags, :any => true)
+    @related_records = ActsAsTaggableOn::Tag.where("name NOT IN (?)", related_project_search)
     render 'api/v1/attachments/index.json.jbuilder', status: :ok
   end
 

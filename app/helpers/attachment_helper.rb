@@ -1,12 +1,13 @@
 module AttachmentHelper
-  
-  def search_by(tag_names)
-    arr = []
+  def search_permitted_tags(tag_names)
     tag_names.split("-").each do |tags|
       if tags.include?("+")
-        arr = tags.split("+").reject { |e| e.empty? }
+        return tags.split("+").reject { |e| e.empty? }
       end
     end
-    return arr
+  end
+
+  def exclude_search(tag_names)
+    tag_names.split(/[+, -]/).reject { |e| e.empty? }
   end
 end

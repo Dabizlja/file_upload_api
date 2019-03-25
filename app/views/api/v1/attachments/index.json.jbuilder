@@ -5,5 +5,6 @@ json.records @records.each do |record|
 end
 
 json.related_records @related_records do |rel_records|
-  json.name rel_records.name
+  json.tag rel_records.name
+  json.file_count rel_records.taggings_count
 end
