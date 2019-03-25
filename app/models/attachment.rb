@@ -1,4 +1,5 @@
 class Attachment < ApplicationRecord
+  has_one_attached :avatar
   acts_as_taggable
   validates_presence_of :name
   before_create :filter_tag_list
