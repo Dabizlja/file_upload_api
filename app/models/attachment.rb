@@ -1,5 +1,6 @@
 class Attachment < ApplicationRecord
-  has_one_attached :avatar
+  self.table_name = "data_attachments"
+  has_one_attached :data
   acts_as_taggable
   validates_presence_of :name
   before_create :filter_tag_list

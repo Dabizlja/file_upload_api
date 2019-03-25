@@ -20,6 +20,6 @@ class Api::V1::AttachmentsController < ApplicationController
   private
 
   def attachment_params
-    params.require(:attachment).permit(:name, :avatar, tag_list: [])
+    params.permit(:name, :data, tag_list: [])
   end
 end
