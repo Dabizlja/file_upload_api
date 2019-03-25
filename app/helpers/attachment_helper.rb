@@ -1,11 +1,12 @@
 module AttachmentHelper
-  def filter_tag_list(names)
-    if names.size > 1
-      names.map do |name|
-        if name.include?("+") || name.include?("-")
-          name.gsub!(/[+-]/, "")
-        end
+  
+  def search_by(tag_names)
+    arr = []
+    tag_names.split("-").each do |tags|
+      if tags.include?("+")
+        arr = tags.split("+").reject { |e| e.empty? }
       end
     end
+    return arr
   end
 end

@@ -1,6 +1,5 @@
 class Api::V1::AttachmentsController < ApplicationController  
   def create
-    filter_tag_list(params[:tag_list])
     attachment = Attachment.new(attachment_params)
     
     if attachment.save
@@ -8,6 +7,13 @@ class Api::V1::AttachmentsController < ApplicationController
     else
       render json: { errors: attachment.errors }, status: :unprocessable_entity
     end
+  end
+
+  def tag_search
+    search_array = search_by(params[:tag_search_query])
+    @records = Attachment.tagged_with(search_array, :any => true)
+    @related_records = Attachment.tagged_with(search_array, :exclude => true)
+    render 'api/v1/attachments/index.json.jbuilder', status: :ok
   end
 
   private
